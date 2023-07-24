@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "bolao",
+    "slug": "bolao",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "aeaae20a-25b0-4289-ae92-b85950a8e530"
+      }
+    }
+  }
+}
