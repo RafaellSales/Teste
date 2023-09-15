@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
-import { TextInput as RNTextInput, View, StyleSheet } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { TextInput as RNTextInput, StyleSheet, View } from "react-native";
 
 const TextInput = forwardRef(({ icon, error, touched, ...rest }, ref) => {
   const validationColor = !touched ? "#223e4b" : error ? "red" : "#223e4b";

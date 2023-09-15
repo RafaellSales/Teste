@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { FlatList, View, Alert } from "react-native";
-import { api } from "../../services/api";
+import React, { useEffect, useState } from "react";
+import { Alert, FlatList } from "react-native";
+import { Empty } from "../../components/Empty";
+import { Equipes } from "../../components/Equipes";
 import { Load } from "../../components/Load";
-import Empty from "../../components/Empty";
-import Header from "../../components/Header";
-import Equipes from "../../components/Equipes";
-import { styles } from "./styles";
+import { api } from "../../services/api";
+import { Container } from "./styles";
+
+interface Team {
+  id: number;
+  crest: string;
+  name: string;
+}
 
 export default function Equipe() {
   const navigation = useNavigation();
-  const [dados, setDados] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [dados, setDados] = useState<Team[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     loadEquipe();
   }, []);
+
   async function loadEquipe() {
     try {
       const { data } = await api.get("teams");
@@ -27,32 +33,26 @@ export default function Equipe() {
     }
   }
 
-  function NextScreen(id) {
-    navigation.navigate("Team", { id: id });
+  function NextScreen(id: number) {
+    navigation.navigate("Team", { id });
   }
 
   return (
     <>
-      <Header title={"Todas as Equipes"} />
-
       {loading ? (
         <Load />
       ) : (
-        <View style={styles.content}>
+        <Container>
           <FlatList
             data={dados}
             removeClippedSubviews={false}
-            keyExtractor={(item, index) => index.toString()}
-            ListEmptyComponent={
-              <View>
-                <Empty title={"não encontrado"} />
-              </View>
-            }
+            keyExtractor={(item) => item.id.toString()}
+            ListEmptyComponent={<Empty title={"não encontrado"} />}
             renderItem={({ item }) => (
               <Equipes data={item} onPress={() => NextScreen(item.id)} />
             )}
           />
-        </View>
+        </Container>
       )}
     </>
   );
