@@ -1,10 +1,9 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  padding-top: 64px;
+  padding: 16px;
   align-items: center;
   background-color: #0088cc;
-  padding: 10px;
 `;
 
 export const Logo = styled.Image`
@@ -16,5 +15,6 @@ export const Logo = styled.Image`
 export const Title = styled.Text`
   font-size: 20px;
   color: #fff;
+  padding: 16px;
   font-weight: bold;
 `;

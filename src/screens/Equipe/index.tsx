@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Alert, FlatList } from "react-native";
 import { Empty } from "../../components/Empty";
 import { Equipes } from "../../components/Equipes";
+import { Header } from "../../components/Header";
 import { Load } from "../../components/Load";
 import { api } from "../../services/api";
 import { Container } from "./styles";
@@ -39,6 +40,7 @@ export default function Equipe() {
 
   return (
     <>
+      <Header title="EQUIPES" />
       {loading ? (
         <Load />
       ) : (
