@@ -1,9 +1,9 @@
-import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from "react";
+import Equipe from "../../screens/Equipe";
 import Home from "../../screens/Home";
 import Matche from "../../screens/Matche";
 import Team from "../../screens/Team";
-import Equipe from "../../screens/Equipe";
 
 const { Navigator, Screen } = createNativeStackNavigator();
 

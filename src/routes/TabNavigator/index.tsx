@@ -1,9 +1,9 @@
-import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
+import Bolao from "../../screens/Bolao";
 import Equipe from "../../screens/Equipe";
 import AppRoutes from "../AppRoutes";
-import Bolao from "../../screens/Bolao";
 
 const Tab = createBottomTabNavigator();
 
@@ -12,7 +12,6 @@ export default function BottomTabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        showLabel: false,
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: "#fff",
