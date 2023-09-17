@@ -1,7 +1,6 @@
 import styled from "styled-components/native";
 
 export const Content = styled.View`
-  padding: 10px;
   align-content: center;
 `;
 
@@ -26,13 +25,14 @@ export const Titulo = styled.Text`
 `;
 
 export const Time = styled.View`
-  flex-direction: row;
   padding: 10px;
+  margin-bottom: 50px;
 `;
 
 export const Version = styled.Text`
-  font-size: 18px;
   font-weight: bold;
-  padding: 10px;
   color: red;
+`;
+export const Buttons = styled.View`
+  flex-direction: row;
 `;

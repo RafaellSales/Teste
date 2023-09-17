@@ -4,6 +4,7 @@ import { Alert, FlatList } from "react-native";
 import { Empty } from "../../components/Empty";
 import { Equipes } from "../../components/Equipes";
 import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
 import { Load } from "../../components/Load";
 import { api } from "../../services/api";
 import { Container } from "./styles";
@@ -16,7 +17,8 @@ interface Team {
 
 export default function Equipe() {
   const navigation = useNavigation();
-  const [dados, setDados] = useState<Team[]>([]);
+  const [termo, setTermo] = useState("");
+  const [teams, setTeams] = useState<Team[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function Equipe() {
   async function loadEquipe() {
     try {
       const { data } = await api.get("teams");
-      setDados(data.teams);
+      setTeams(data.teams);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -38,15 +40,30 @@ export default function Equipe() {
     navigation.navigate("Team", { id });
   }
 
+  const filteredDado = termo
+    ? teams.filter((item) => {
+        let name = item.name.toUpperCase();
+        let textData = termo.toUpperCase();
+
+        return name.indexOf(textData) > -1;
+      })
+    : teams;
+
   return (
     <>
       <Header title="EQUIPES" />
+      <Input
+        iconName="search"
+        onChangeText={(nextValue) => setTermo(nextValue)}
+        value={termo}
+        placeholder="Digite aqui para pesquisar"
+      />
       {loading ? (
         <Load />
       ) : (
         <Container>
           <FlatList
-            data={dados}
+            data={filteredDado}
             removeClippedSubviews={false}
             keyExtractor={(item) => item.id.toString()}
             ListEmptyComponent={<Empty title={"não encontrado"} />}

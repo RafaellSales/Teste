@@ -1,8 +1,9 @@
 import React from "react";
 import { Alert } from "react-native";
 import { Button } from "../../components/Button";
+import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
-import { Content, Time, Titulo, Version } from "./styles";
+import { Buttons, Content, Time, Version } from "./styles";
 export default function Bolao() {
   function Add() {
     Alert.alert("ATENÇÃO", "salvo com sucesso");
@@ -13,25 +14,56 @@ export default function Bolao() {
 
   return (
     <Content>
+      <Header title="BET" />
       <Time>
-        <Titulo>{"Time da casa"}</Titulo>
         <Input
           iconName="user"
-          placeholder="Casa"
+          placeholder="Time da casa"
           // onChangeText={setName}
           // value={name}
         />
         <Version>vs</Version>
         <Input
           iconName="user"
-          placeholder="Fora"
+          placeholder="Time de fora"
           // onChangeText={setName}
           // value={name}
         />
-        <Titulo>{"Time de fora"}</Titulo>
       </Time>
-      <Button title="adicionar time" onPress={Add} />
-      <Button title="remover time" onPress={Remove} />
+      <Time>
+        <Input
+          iconName="user"
+          placeholder="Time da casa"
+          // onChangeText={setName}
+          // value={name}
+        />
+        <Version>vs</Version>
+        <Input
+          iconName="user"
+          placeholder="Time de fora"
+          // onChangeText={setName}
+          // value={name}
+        />
+      </Time>
+      <Time>
+        <Input
+          iconName="user"
+          placeholder="Time da casa"
+          // onChangeText={setName}
+          // value={name}
+        />
+        <Version>vs</Version>
+        <Input
+          iconName="user"
+          placeholder="Time de fora"
+          // onChangeText={setName}
+          // value={name}
+        />
+      </Time>
+      <Buttons>
+        <Button title="adicionar time" onPress={Add} />
+        <Button title="remover time" onPress={Remove} />
+      </Buttons>
     </Content>
   );
 }

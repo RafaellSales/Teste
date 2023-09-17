@@ -1,5 +1,5 @@
 import { TextInput } from "react-native";
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 
 interface ContainerProps {
   isFocused: boolean;
@@ -7,15 +7,6 @@ interface ContainerProps {
 
 export const Container = styled.View<ContainerProps>`
   flex-direction: row;
-
-  margin-bottom: 8px;
-
-  ${({ isFocused, theme }) =>
-    isFocused &&
-    css`
-      border-bottom-width: 2px;
-      border-bottom-color: ${theme.colors.main};
-    `};
 `;
 
 export const IconContainer = styled.View`
@@ -24,7 +15,7 @@ export const IconContainer = styled.View`
   justify-content: center;
   align-items: center;
 
-  margin-right: 2px;
+  margin-right: 1px;
 
   background-color: ${({ theme }) => theme.colors.background_secondary};
 `;

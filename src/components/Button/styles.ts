@@ -1,10 +1,9 @@
 import styled from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
-  width: 100%;
+  width: 50%;
+  margin: 1px;
   height: 50px;
-  max-height: 56px;
-  margin-top: 10px;
   background-color: #0088cc;
   border-radius: 8px;
   justify-content: center;

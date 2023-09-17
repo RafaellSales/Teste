@@ -11,7 +11,7 @@ export function Button({ title, loading = false, onPress }: ButtonProps) {
   return (
     <Container onPress={onPress}>
       {loading ? (
-        <ActivityIndicator color="#fff" size={32} />
+        <ActivityIndicator color="rgb(240, 12, 12)" size={32} />
       ) : (
         <Title>{title}</Title>
       )}
