@@ -1,10 +1,16 @@
 import styled from "styled-components/native";
 
 export const MatchContainer = styled.View`
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   border-radius: 8px;
+`;
+
+export const ImageContainer = styled.View`
+  flex-direction: column;
+`;
+export const ResultContainer = styled.View`
+  margin: 10px;
+  flex-direction: column;
 `;
 
 export const TeamLogo = styled.Image`
@@ -14,11 +20,15 @@ export const TeamLogo = styled.Image`
 `;
 
 export const Image = styled.Image`
-  width: 40px;
-  height: 40px;
+  flex: 1;
+  margin: 10px;
+  width: 30px;
+  height: 30px;
 `;
 
 export const Container = styled.View`
+  background-color: ${({ theme }) => theme.colors.background_primary};
+  margin: 5px;
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
@@ -27,20 +37,15 @@ export const Container = styled.View`
   border-radius: 8px;
 `;
 
-export const Version = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
-  padding: 10px;
-  color: red;
-`;
-
 export const Title = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.fonts.primary_400};
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.background_secondary};
   padding: 10px;
 `;
 
 export const Number = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
+  font-family: ${({ theme }) => theme.fonts.primary_400};
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.background_secondary};
 `;

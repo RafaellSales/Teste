@@ -2,10 +2,11 @@ import React from "react";
 import {
   Container,
   Image,
+  ImageContainer,
   MatchContainer,
   Number,
+  ResultContainer,
   Title,
-  Version,
 } from "./styles";
 
 interface Match {
@@ -32,18 +33,18 @@ interface MatchesProps {
 export function Matches({ data }: MatchesProps) {
   return (
     <Container>
+      <ImageContainer>
+        <Image source={{ uri: data.homeTeam.crest }} />
+        <Image source={{ uri: data.awayTeam.crest }} />
+      </ImageContainer>
       <MatchContainer>
         <Title>{data.homeTeam.name}</Title>
-      </MatchContainer>
-      <Image source={{ uri: data.homeTeam.crest }} />
-
-      <Number>{data.score.fullTime.home}</Number>
-      <Version>vs</Version>
-      <Number>{data.score.fullTime.away}</Number>
-      <Image source={{ uri: data.awayTeam.crest }} />
-      <MatchContainer>
         <Title>{data.awayTeam.name}</Title>
       </MatchContainer>
+      <ResultContainer>
+        <Number>{data.score.fullTime.home}</Number>
+        <Number>{data.score.fullTime.away}</Number>
+      </ResultContainer>
     </Container>
   );
 }

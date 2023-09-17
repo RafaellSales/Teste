@@ -3,7 +3,7 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   padding: 16px;
   align-items: center;
-  background-color: #0088cc;
+  background-color: ${({ theme }) => theme.colors.background_primary};
 `;
 
 export const Logo = styled.Image`
