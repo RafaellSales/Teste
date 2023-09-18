@@ -2,6 +2,7 @@ import { useFocusEffect, useRoute } from "@react-navigation/native";
 import React, { useCallback, useState } from "react";
 import { Alert, FlatList } from "react-native";
 import { Empty } from "../../components/Empty";
+import { Header } from "../../components/Header";
 import { Load } from "../../components/Load";
 import { Matches } from "../../components/Matches";
 import { api } from "../../services/api";
@@ -26,14 +27,15 @@ interface Match {
 }
 
 interface RouteParams {
-  id: number;
+  id: string;
+  name: string;
 }
 
 export default function Matche() {
   const [getMatche, setMatche] = useState<Match[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const route = useRoute();
-  const { id } = route.params as RouteParams;
+  const { id, name } = route.params as RouteParams;
 
   useFocusEffect(
     useCallback(() => {
@@ -54,6 +56,7 @@ export default function Matche() {
 
   return (
     <>
+      <Header title={name} />
       {loading ? (
         <Container>
           <FlatList

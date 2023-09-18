@@ -36,8 +36,8 @@ export default function Home() {
     }
   }
 
-  function NextScreen(id: string) {
-    navigation.navigate("Matche", { id });
+  function NextScreen(id: string, name: string) {
+    navigation.navigate("Matche", { id, name });
   }
 
   const filteredDado = termo
@@ -68,7 +68,10 @@ export default function Home() {
             keyExtractor={(item) => item.id.toString()}
             ListEmptyComponent={<Empty title={"Não encontrado"} />}
             renderItem={({ item }) => (
-              <Competition data={item} onPress={() => NextScreen(item.id)} />
+              <Competition
+                data={item}
+                onPress={() => NextScreen(item.id, item.name)}
+              />
             )}
           />
         </Container>

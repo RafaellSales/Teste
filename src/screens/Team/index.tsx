@@ -21,7 +21,7 @@ interface TeamMember {
 // }
 
 interface RouteParams {
-  id: number;
+  id: string;
 }
 
 export default function Team() {
@@ -50,16 +50,18 @@ export default function Team() {
   return (
     <>
       {loading ? (
-        <Container>
-          {/* <Text style={styles.titulo}>{dado?.name || null}</Text> */}
-          <FlatList
-            data={dados || []}
-            removeClippedSubviews={false}
-            keyExtractor={(item) => item.id.toString()}
-            ListEmptyComponent={<Empty title={"não encontrado"} />}
-            renderItem={({ item }) => <Teams data={item} />}
-          />
-        </Container>
+        <>
+          <Container>
+            {/* <Text style={styles.titulo}>{dado?.name || null}</Text> */}
+            <FlatList
+              data={dados || []}
+              removeClippedSubviews={false}
+              keyExtractor={(item) => item.id.toString()}
+              ListEmptyComponent={<Empty title={"não encontrado"} />}
+              renderItem={({ item }) => <Teams data={item} />}
+            />
+          </Container>
+        </>
       ) : (
         <Load />
       )}

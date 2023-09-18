@@ -10,7 +10,7 @@ import { api } from "../../services/api";
 import { Container } from "./styles";
 
 interface Team {
-  id: number;
+  id: string;
   crest: string;
   name: string;
 }
@@ -36,7 +36,7 @@ export default function Equipe() {
     }
   }
 
-  function NextScreen(id: number) {
+  function NextScreen(id: string, name: string) {
     navigation.navigate("Team", { id });
   }
 
@@ -68,7 +68,10 @@ export default function Equipe() {
             keyExtractor={(item) => item.id.toString()}
             ListEmptyComponent={<Empty title={"não encontrado"} />}
             renderItem={({ item }) => (
-              <Equipes data={item} onPress={() => NextScreen(item.id)} />
+              <Equipes
+                data={item}
+                onPress={() => NextScreen(item.id, item.name)}
+              />
             )}
           />
         </Container>
